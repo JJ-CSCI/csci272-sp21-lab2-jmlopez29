@@ -13,33 +13,49 @@ class GPS {
   double longitude;
   Compass longitudeDirection;
 public:
- GPS(double lat, double lon) :
-  GPS(lat, Compass::N, lon, Compass::W) {}
-  
-  GPS(double lat = 0.0, Compass latd = Compass::N, double lon = 0.0, Compass lond = Compass::W) {
-    if ((0 <= lat) && (lat <= 90))
-    latitude = lat;
-    else
-    latitude = 0.0;
-    if(latd == Compass::N || latd == Compass::S)
-     latitudeDirection = latd;
+   GPS(){
+     latitude = 0.0;
+     latitudeDirection = Compass::N;
+     longitude = 0.0;
+     longitudeDirection = Compass::W;
+   }
+   GPS(double lat, double lon){
+     if ((0 <= lat) && (lat <= 90))
+     latitude = lat;
      else
+     latitude = 0.0;
      latitudeDirection = Compass::N;
      if ((0 <= lon) && (lon <= 180))
-      longitude = lon;
-      else
-      longitude = 0.0;
-      if (lond == Compass::W || lond == Compass::E)
-      longitudeDirection = lond;
-      else
-       longitudeDirection = Compass::W;
-  }
+     longitude = lon;
+     else
+     longitude = 0.0;
+     longitudeDirection = Compass::W;
+   }
+   GPS(double lat, Compass latd, double lon, Compass lond){
+   if ((0 <= lat) && (lat <= 90))
+       latitude = lat;
+    else
+        latitude = 0.0;
+    if(latd == Compass::N || latd == Compass::S)
+        latitudeDirection = latd;
+    else
+        latitudeDirection = Compass::N;
+    if ((0 <= lon) && (lon <= 180))
+        longitude = lon;    
+   else
+        longitude = 0.0;
+   if(lond == Compass::W || lond == Compass::E)
+        longitudeDirection = lond;
+   else
+        longitudeDirection = Compass::W;
+   }
 
-  double getLatitude() { return latitude; }
-  Compass getLatitudeDirection() { return latitudeDirection;}
-  double getLongitude() { return longitude; }
-  Compass getLongitudeDirection() { return longitudeDirection;}
-};
+   double getLatitude() {return latitude; }
+   Compass getLatitudeDirection() {return latitudeDirection;}
+   double getLongitude() { return longitude; }
+   Compass getLongitudeDirection() {return longitudeDirection; }
+}; 
+
 //------------------------------
 //   DO NOT MODIFY TEST CASES
 //------------------------------
