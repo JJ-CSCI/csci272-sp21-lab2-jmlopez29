@@ -21,7 +21,7 @@ test.o: test.cpp
 	$(CXX) $(CXX_FLAGS) test.cpp -c
 
 $(BIN): test.o $(PRJ).o
-	g++ $(CXX_FLAGS) test.o $(SRC)
+	g++ $(CXX_FLAGS) test.cpp $(SRC)
 
 solution: sol2pdf imgpdf clean
 
